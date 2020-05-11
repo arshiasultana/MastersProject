@@ -1,0 +1,86 @@
+import React, { Component } from 'react'
+import BarYear from './Bar_2019';
+import BoxYear from './Box_2019';
+import ScatterYear from './Scatter_2019';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+
+
+export default class ChartWrapper extends Component {
+
+    componentDidMount() {
+        this.setState({
+            chart: new BarYear(this.refs.chart),
+            chart1: new BoxYear(this.refs.chart1),
+            chart2: new ScatterYear(this.refs.chart2),
+
+        })
+
+    }
+    shouldComponentUpdate() {
+        return false
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.state.chart.update(nextProps.year)
+        this.state.chart1.update(nextProps.year)
+        this.state.chart2.update(nextProps.year)
+
+    }
+    render() {
+        // return <div className="chart-area" ref="chart"></div>
+        return (<Container>
+            <Row>
+                <Col ref="chart" md={9}> </Col>
+                <Col md={3}><Card style={{ width: '20rem' }}>
+                    <Card.Body>
+                        <Card.Title>Bar Graph displaying the median sale price for each borough </Card.Title>
+                        {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
+                        <Card.Text>
+                            Most Expensive Borough -Which borough has the heighest Sale price for each year?
+    </Card.Text>
+                        {/* <Card.Link href="#">Card Link</Card.Link>
+                        <Card.Link href="#">Another Link</Card.Link> */}
+                    </Card.Body>
+                </Card></Col>
+            </Row>
+            <Row>
+
+                <Col ref="chart1" md={9}>
+
+                </Col>
+                <Col md={3}><Card style={{ width: '20rem' }}>
+                    <Card.Body>
+                        <Card.Title>Grouped Scatter Plot showing the relation between Property size(Land Square Feet) of each borough and Sale Price </Card.Title>
+                        {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
+                        <Card.Text>
+                            Property sizes in NYC/ Square footage - Does more money mean larger properties in NYC?
+    </Card.Text>
+                        {/* <Card.Link href="#">Card Link</Card.Link>
+                        <Card.Link href="#">Another Link</Card.Link> */}
+                    </Card.Body>
+                </Card></Col>
+            </Row>
+            <Row>
+
+
+                <Col ref="chart2" md={9}>
+
+                </Col>
+                <Col md={3}><Card style={{ width: '20rem' }}>
+                    <Card.Body>
+                        <Card.Title>Box Plot showing the sale price distribution for Each borough </Card.Title>
+                        {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
+                        <Card.Text>
+                            What was the sale price distribution for each borough?
+    </Card.Text>
+                        {/* <Card.Link href="#">Card Link</Card.Link>
+                        <Card.Link href="#">Another Link</Card.Link> */}
+                    </Card.Body>
+                </Card></Col>
+            </Row>
+        </Container >);
+    }
+
+
+}
+

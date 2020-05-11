@@ -1,0 +1,26 @@
+[
+    {
+        "group": "banana",
+        "nitrogen": 12,
+        "normal": 1,
+        "stress": 12
+    },
+    {
+        "group": "poacee",
+        "nitrogen": 2,
+        "normal": 3,
+        "stress": 4
+    },
+    {
+        "group": "sorgho",
+        "nitrogen": 4,
+        "normal": 5,
+        "stress": 6
+    },
+    {
+        "group": "trir",
+        "nitrogen": 7,
+        "normal": 6,
+        "stress": 7
+    }
+]
